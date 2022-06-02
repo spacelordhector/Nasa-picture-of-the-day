@@ -16,6 +16,9 @@ img {
   height: 300px;
 }
 
+iframe {
+  display: none;
+}
 
 /******************************************
 /* ADDITIONAL STYLES

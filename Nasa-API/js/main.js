@@ -9,7 +9,15 @@ function getFetch() {
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       console.log(data)
-      document.querySelector('img').src = data.hdurl
+      if (data.media_type === 'image') {
+        document.querySelector('img').src = data.hdurl
+        document.querySelector('iframe').style.display = "none"
+        document.querySelector('img').style.display = "block"
+      } else if (data.media_type === 'video') {
+        document.querySelector('iframe').style.display = "block"
+        document.querySelector('iframe').src = data.url
+        document.querySelector('img').style.display = "none"
+      }
       document.querySelector('#title-of-image').innerText = data.title
       document.querySelector('#image-description').innerText = data.explanation
     })
